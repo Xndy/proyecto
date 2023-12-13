@@ -9,5 +9,5 @@ spring:
     username: origami
     password: 1234
   jpa:
-    show-sql: true
+    show-sql: false
     database-platform: org.hibernate.dialect.PostgreSQL95Dialect

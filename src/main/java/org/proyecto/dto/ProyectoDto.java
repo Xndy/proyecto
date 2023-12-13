@@ -2,31 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.proyecto.entity;
+package org.proyecto.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author ORIGAMI
  */
-@Entity
-@Table(name = "proyecto")
-public class Proyecto {
+public class ProyectoDto {
 
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String denominacion;
     private String detalleArrastre;
@@ -43,17 +29,12 @@ public class Proyecto {
     private Date fechaModificacion;
     private String usuarioCreacion;
     private String usuarioModificacion;
-    @JoinColumn(name = "responsable", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Persona responsable;
-    @JoinColumn(name = "proceso", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Proceso proceso;
-    @JoinColumn(name = "area", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Area area;
 
-    public Proyecto() {
+    private ProcesoDto proceso;
+    private PersonaDto responsable;
+    private AreaDto area;
+
+    public ProyectoDto() {
     }
 
     public Integer getId() {
@@ -184,27 +165,27 @@ public class Proyecto {
         this.usuarioModificacion = usuarioModificacion;
     }
 
-    public Persona getResponsable() {
-        return responsable;
-    }
-
-    public void setResponsable(Persona responsable) {
-        this.responsable = responsable;
-    }
-
-    public Proceso getProceso() {
+    public ProcesoDto getProceso() {
         return proceso;
     }
 
-    public void setProceso(Proceso proceso) {
+    public void setProceso(ProcesoDto proceso) {
         this.proceso = proceso;
     }
 
-    public Area getArea() {
+    public PersonaDto getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(PersonaDto responsable) {
+        this.responsable = responsable;
+    }
+
+    public AreaDto getArea() {
         return area;
     }
 
-    public void setArea(Area area) {
+    public void setArea(AreaDto area) {
         this.area = area;
     }
 
