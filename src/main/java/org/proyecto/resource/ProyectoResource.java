@@ -34,4 +34,6 @@ public class ProyectoResource {
         return new ResponseEntity<>(proyectoService.guardarProyecto(dto), HttpStatus.OK);
     }
 
+    
+    
 }
