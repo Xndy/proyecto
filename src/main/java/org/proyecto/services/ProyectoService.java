@@ -4,6 +4,7 @@
  */
 package org.proyecto.services;
 
+import java.util.Date;
 import java.util.List;
 import org.proyecto.dto.ProyectoDto;
 import org.proyecto.entity.Proyecto;
@@ -31,6 +32,13 @@ public class ProyectoService {
 
     public ProyectoDto guardarProyecto(ProyectoDto dto) {
         Proyecto proyecto = mapper.toEntity(dto);
+        if (proyecto.getFechaCreacion() == null) {
+            proyecto.setFechaCreacion(new Date());
+        }
+        proyecto.setEstado("A".charAt(0));
+        if (proyecto.getUsuarioCreacion() == null) {
+            proyecto.setUsuarioCreacion("admin");
+        }
         proyecto = repository.save(proyecto);
         return mapper.toDto(proyecto);
     }
