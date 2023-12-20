@@ -1,0 +1,10 @@
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.10.204:5432/proyecto
+    username: origami
+    password: 1234
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
